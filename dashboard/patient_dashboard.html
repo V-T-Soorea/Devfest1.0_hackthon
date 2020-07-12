@@ -72,7 +72,6 @@
             </tr>                                                           
         </table>         
     </div>
-    <!-- <button class="btn btn-primary" class="reading">Add New Reading</button> -->
 
     <div class="container">        
         <!-- Trigger the modal with a button -->
@@ -83,28 +82,24 @@
           <div class="modal-dialog">
           
             <!-- Modal content-->
-            <div class="modal-content">
-              <!-- <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-              </div> -->
+            <div class="modal-content">            
               <div class="modal-body">
                 <!-- <p>Some text in the modal.</p> -->
                 <div>
                     <label>Blood Pressure:</label>
-                    <input>
+                    <input id = "bp">
                 </div>
                 <div>
                     <label>Temperature:</label>
-                    <input>
+                    <input id = "temp">
                 </div>
                 <div>
                     <label>Sugar Levels:</label>
-                    <input>
+                    <input id = "sugar">
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                <button id = "reading" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
               </div>
             </div>
             
@@ -112,8 +107,36 @@
         </div>
         
       </div>
+    </div>    
 
-    <script src="./../public/js/patient_dashboard.js"></script> 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script> -->
+    <script src=" https://firebase.google.com/docs/web/setup#available-libraries"></script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script> -->
+
+
+    <script>
+    // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAj3nznOwhHeyjgwMBImG1ihWCDL0ZA-a0",
+            authDomain: "devfest1-hackathon.firebaseapp.com",
+            databaseURL: "https://devfest1-hackathon.firebaseio.com",
+            projectId: "devfest1-hackathon",
+            storageBucket: "devfest1-hackathon.appspot.com",
+            messagingSenderId: "888101010109",
+            appId: "1:888101010109:web:2f9ac72198b503e52615d4",
+            measurementId: "G-DF3VCHJNH1"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script src="./../public/js/patient_dashboard.js"></script>
 </body>
 </html>
