@@ -53,75 +53,85 @@
         <label>Doc 1</label>
     </div>
 
+
+
     <div>
         <label style = "margin-left: 5%;">Readings: </label>
-        <table style="margin-top: 2%;width:100%" cols = "5" class = "table table-striped">   
-            <tr>
-                <th style = "font-weight: normal;text-align: center;width:20%">1.</th>  
-                <td>
-                    <label>Time</label>
-                </td>
-            </tr>    
-            <tr>
-                <th style = "font-weight: normal;text-align: center;width:20%">W</th>  
-                <td>
-                    <div class="checkbox">
-                        <label><input type="checkbox" value=""> Viewed</label>
-                    </div>
-                </td>
-            </tr>                                                           
-        </table>         
-    </div>
 
-    <div class="container">        
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Reading</button>
-      
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
+        <div class="container" style = "text-align: right;">        
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Reading</button>
           
-            <!-- Modal content-->
-            <div class="modal-content">            
-              <div class="modal-body">
-                <!-- <p>Some text in the modal.</p> -->
-                <div>
-                    <label>Blood Pressure:</label>
-                    <input id = "bp">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">            
+                  <div class="modal-body">
+                    <!-- <p>Some text in the modal.</p> -->
+                    <div>
+                        <label>Blood Pressure:</label>
+                        <input id = "bp">
+                    </div>
+                    <div>
+                        <label>Temperature:</label>
+                        <input id = "temp">
+                    </div>
+                    <div>
+                        <label>Sugar Levels:</label>
+                        <input id = "sugar">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button id = "reading" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                  </div>
                 </div>
-                <div>
-                    <label>Temperature:</label>
-                    <input id = "temp">
-                </div>
-                <div>
-                    <label>Sugar Levels:</label>
-                    <input id = "sugar">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button id = "reading" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                
               </div>
             </div>
             
           </div>
-        </div>
-        
-      </div>
-    </div>    
+        </div> 
 
+
+        <table style="margin-top: 2%;width:100%" cols = "5" class = "table table-striped" id = "patient">   
+            
+                <tr>
+                    <th style = "width:25%">Time</th>
+                    <th style = "width:25%">BP</th>
+                    <th style = "width:25%">Temperature</th>
+                    <th style = "width:25%">Sugar Levels</th>
+                </tr>           
+                <!-- <tr>
+                    <th style = "font-weight: normal;text-align: center;width:20%">1.</th>  
+                    <td>
+                        <label>Time</label>
+                    </td>
+                </tr>    
+                <tr>
+                    <th style = "font-weight: normal;text-align: center;width:20%">W</th>  
+                    <td>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""> Viewed</label>
+                        </div>
+                    </td>
+                </tr>                          -->
+                                             
+        </table>         
+    </div>  
+
+    
+    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script> -->
-    <script src=" https://firebase.google.com/docs/web/setup#available-libraries"></script>
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script> -->
-
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
 
     <script>
-    // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyAj3nznOwhHeyjgwMBImG1ihWCDL0ZA-a0",
             authDomain: "devfest1-hackathon.firebaseapp.com",
@@ -134,9 +144,16 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
+        // firebase.analytics();
+
+
+        function hello(){
+            var firebaseDef = firebase.database().ref("/work");
+            firebaseDef.child("Text").set("hello")
+        }
     </script>
 
+    
     <script src="./../public/js/patient_dashboard.js"></script>
 </body>
 </html>
